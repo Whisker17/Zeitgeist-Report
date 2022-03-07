@@ -1,7 +1,8 @@
 # Zeitgeist-Report
 
-- [**Weekly Report**](#weekl-report)
-- [**Monthly Report**](#monthly-report)
+- [Zeitgeist-Report](#zeitgeist-report)
+  - [Weekly Report](#weekly-report)
+  - [Monthly Report](#monthly-report)
 
 ## Weekly Report
 
@@ -9,4 +10,4 @@
 
 ## Monthly Report
 
-- 202202
+- [202202](./Monthly-Reports/202202.md)
