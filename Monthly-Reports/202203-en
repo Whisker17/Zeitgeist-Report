@@ -1,74 +1,72 @@
-Monthly Report #202203
+# Monthly Report 202203
 
 This month, we are in the final stage of the mainnet launch. At present, the project is under a code auditing stage. Once all the problems are solved, we will launch the mainnet and held our TTE activities later.
 
 
-### Tech
+## Tech
 
 
 ### Subsquid integration
 
+![](./../img/2022-04-01_11-21.png)
+
 This month, we continued to integrate Subsquid into the Zeitgeist ecosystem. As an important data index tool in the zeitgeist, we submitted 27 commitments in total. Below are key update details:
 
+- Migrate to subsquid v5 （[#77](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/4df7e70f5dbe753c78ce1115283030265560d7f2)）
+  - Upgrade indexer
+  - Update indexer gateway image
+  - Add metadata for all spec version
+  - Migrate mapping handlers listed in balances
+  - Update scripts, related configuration files and dockerfile
 
+- Adapt to v14 metadata changes （[#82](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/61b08f95e4025afa1bb8eac3036b78efa4ec0b5b)）
 
+- Fix assetId for scalar markets （[#83](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/5f742eec82baef90b2b3b8dadffba71b5e9191fa)）
+  - Create asset for scalar outcomes
+  - Perceive currencyId for scalar markets
+  - Leverage market.outcomeAssets for creating asset
 
--Migrate to subsquid v5 (#77)
-  -Upgrade indexer
-  -Update indexer gateway image
-  -Add metadata for all spec version
-  -Migrate mapping handlers listed in balances
-  -Update scripts, related configuration files and dockerfile
+- Manually fix balances to record activity unavailable via event/extrinsic data （[#89](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/a280a4f6ce5229bcab2ef2d833802e7378db34ba)）
 
--Adapt to v14 metadata changes (#82)
+- Process & map ParachainStakingRewardedEvent （[#90](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/31acdfd55ee302e29605d266a40166f98bb23c59)）
 
--Fix assetId for scalar markets (#83)
-  -Create asset for scalar outcomes
-  -Perceive currencyId for scalar markets
-  -Leverage market.outcomeAssets for creating asset
+- Identify pool account and add pool-Id to account （[#94](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/fdc9f194da7d787198ae68518622c15b2dba66e7)）
 
--Manually fix balances to record activity unavailable via event/extrinsic data (#89)
+- Add account info in trade data （[#99](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/625f702015bc325f548326e307c639890c493078)）
 
--Process & map ParachainStakingRewardedEvent (#90)
+- Compute value of each asset in an account （[#102](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/f7f6ec93b1ed766e1d01243287983e8b6bc8eb32)）
 
--Identify pool account and add pool-Id to account (#94)
-
--Add account info in trade data (#99)
-
--Compute value of each asset in an account (#102)
-
--Compute sum of all asset values in an account (#104)
+- Compute sum of all asset values in an account （[#104](https://github.com/zeitgeistpm/zeitgeist-subsquid/commit/87f702b1c1e49975f8519b0580db6dd67d1ee6c2)）
 
 
 ### Protocol
 
-There are a few changes to the Zeitgeist protocol this month. It mainly carries out synchronous upgrade adaptation for the upgrade of Polkadot, and a total of 23 commitments have been submitted. Below are key update details:
+This month the Zeitgeist protocol made important changes, including asset optimisation and democratic governance pallet implement in preparation for its imminent launch, and a total of 23 commitments have been submitted. Below are key update details:
 
+![](./../img/2022-04-01_11-16.png)
 
--Add StorageVersion due to Substrate update(#472)
+- Add StorageVersion due to Substrate update （[#472](https://github.com/zeitgeistpm/zeitgeist/commit/694a221ce892974d57beb1e28388bbfc6544adab)）
    
--Remove the txfilter module and use the abstract basecallfilter for filtering 
-(#441)
+- Remove the txfilter module and use the abstract basecallfilter for filtering （[#441](https://github.com/zeitgeistpm/zeitgeist/commit/5f0b7f5023a7603896309b3f33b185ca5862d688)）
 
--Remove panickers from Rikiddo code, abstract some redundant code (#470)
+- Remove panickers from Rikiddo code, abstract some redundant code （[#470](https://github.com/zeitgeistpm/zeitgeist/commit/06994c58f2f03d1f453a547eb3ab932fc2346ff8)）
 
--Update dependencies to polkadot-v0.9.16（#458）
+- Update dependencies to polkadot-v0.9.16 （[#458](https://github.com/zeitgeistpm/zeitgeist/commit/410ae41b363beea6c098f130a270e1569e0ef538)）
 
--Ensure that there's no activity on pending proposed markets (#432)
+- Ensure that there's no activity on pending proposed markets，ensure you don't leave orphaned pools on the chain （[#432](https://github.com/zeitgeistpm/zeitgeist/commit/463dd1349b1f4148c682d95aa77c2b4b0f704ec3)）
 
--Clarify and implement numerical limits for bpow and bpow_approx (#474)	
-  -Add the calculation method of Maxinratio and Maxoutratio parameters to restrict the operation (creation or removal) of the large-scale asset pool (
-#475)
+- Clarify and implement numerical limits for `bpow` and `bpow_approx` （[#474](https://github.com/zeitgeistpm/zeitgeist/commit/7de4d2c79eefbe7403206330f619d904e18784f0)）
+  -Add the calculation method of Maxinratio and Maxoutratio parameters to restrict the operation (creation or removal) of the large-scale asset pool （[#475](https://github.com/zeitgeistpm/zeitgeist/commit/9ca3d7e71c42fc1904d7ecfc4aa88003e19a8a5c)）
 
--Add amount to Bought/SoldCompleteSet event (#491)
+- Add `amount` to Bought/SoldCompleteSet event （[#491](https://github.com/zeitgeistpm/zeitgeist/commit/3f6b91bbe83c915588dd52eb2adba67509547528)）
 
--Prepage migrations for parachain-staking (Moonbeam) (#488)
+- Prepage migrations for parachain-staking (Moonbeam) （[#488](https://github.com/zeitgeistpm/zeitgeist/commit/9b1e7091bf429d87a590a74de6f6941d5c50e70f)）
 
--Add democracy (#494)
-  -Add democracy pallet
-  -Add Tech & Council collective & membership
-  -Add weights and add vote proportion origins
-  -Modify relevant configuration
+- Add democracy （[#494](https://github.com/zeitgeistpm/zeitgeist/commit/4813294540f934ed769594dfbf4ce510bbfe8298)）
+  - Add democracy pallet
+  - Add Tech & Council collective & membership
+  - Add weights and add vote proportion origins
+  - Modify relevant configuration
 
 
 
@@ -77,23 +75,24 @@ There are a few changes to the Zeitgeist protocol this month. It mainly carries 
 
 ### SDK
 
-This month, the SDK continues to iterate rapidly, and the version number is from v0 4.8-alpha. 2 iterations to v0 4.10, a total of 15 commitments were submitted. Below are key update details:
+This month, the SDK continues to iterate rapidly, and the version number is from v0 4.8-alpha.2 iterations to v0 4.10, a total of 15 commitments were submitted. Below are key update details:
 
+![](./../img/2022-04-01_11-19.png)
 
-
--Upgrade and adapt subsquid V5 and release SDK v0 4.8-alpha. Version 3 (#171)
+- Upgrade and adapt subsquid V5 and release SDK v0 4.8-alpha.3 （[#171](https://github.com/zeitgeistpm/tools/commit/0f3639214cb81a0d68a02178144367f539b927fd)）
   
--Fetch the historical price of assets through subsquid and realease SDK v0 4.8 official version (#173)
+- Fetch the historical price of assets through subsquid and realease SDK v0 4.8 official version （[#173](https://github.com/zeitgeistpm/tools/commit/495bfffe66fb259a56a74bc39fafdff586b704ae)）
+- configurable ipfs client url and release SDK v0 4.9 version （[#175](https://github.com/zeitgeistpm/tools/commit/b4638ebb9b80c33b6e90a029ac423318a9d6dde3)）
 
--configurable ipfs client url and release SDK v0 4.9 version (#175)
+- Modify some functions to support scalar market and release SDK v0. 4.10 version （[#176](https://github.com/zeitgeistpm/tools/commit/066b5eaba281c12ddce528440c3f2ee5010d77cb)）
 
--Modify some functions to support scalar market and release SDK v0. 4.10 version(#176)
-
--Add the interface of getting historical account balances from subsquidd and realease SDK v0.4.11 Version (#177)
+- Add the interface of getting historical account balances from subsquidd and realease SDK v0.4.11 Version （[#177](https://github.com/zeitgeistpm/tools/commit/ef7d96aaca8ab90fd6d7cc65b267c733dcfcd43b)）
 
 
 
 ### App optimization
+
+![](./../img/2022-04-01_11-22.png)
 
 Most of the work this month is the optimization of the app. At present, the app has not been open-source, and a total of 96 commitments have been made
 
@@ -101,21 +100,21 @@ Most of the work this month is the optimization of the app. At present, the app 
 
 ### Other development
 
--At present, the final code audit is in progress before launching mainnet
+- At present, the final code audit is in progress before launching mainnet
  
--The team is still developing relevant websites and tools for the next marketing campaign, including the further exploration of NFT functions, which have not yet been open-source
+- The team is still developing relevant websites and tools for the next marketing campaign, including the further exploration of NFT functions, which have not yet been open-source
 
-Users can check crowdloan rewards at https://balance.zeitgeist.pm/ 
+Users can check crowdloan rewards at (`balance-checker`)[https://balance.zeitgeist.pm/]
 
 
 ### Marketing
 
--Star to build a discord server for the Chinese community
+- Start to build a discord server for the Chinese community
 
--Translate related prediction market wiki articles to provide more detailed knowledge for the community
+- Translate related prediction market wiki articles to provide more detailed knowledge for the community
 
--Work with the Karura team to integrate aUSD into the Zeitgeist platform to help users avoid cryptocurrency price fluctuations
+- Work with the Karura team to integrate aUSD into the Zeitgeist platform to help users avoid cryptocurrency price fluctuations
 
--Complete the integration with the data analysis suite of the subscan team, allowing users to read our on-chain and obtain the real-time information on our Kusama parallel chain.
+- Complete the integration with the data analysis suite of the subscan team, allowing users to read our on-chain and obtain the real-time information on our Kusama parallel chain.
 
--Join Acala's 250 million ecosystem fund to further support the ecosystem expansion of the stable currency aUSD in Polkadot / Kusama
+- Join Acala's 250 million ecosystem fund to further support the ecosystem expansion of the stable currency aUSD in Polkadot / Kusama
