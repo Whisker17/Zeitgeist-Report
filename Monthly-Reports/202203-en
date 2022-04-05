@@ -1,0 +1,121 @@
+Monthly Report #202203
+
+This month, we are in the final stage of the mainnet launch. At present, the project is under a code auditing stage. Once all the problems are solved, we will launch the mainnet and held our TTE activities later.
+
+
+### Tech
+
+
+### Subsquid integration
+
+This month, we continued to integrate Subsquid into the Zeitgeist ecosystem. As an important data index tool in the zeitgeist, we submitted 27 commitments in total. Below are key update details:
+
+
+
+
+-Migrate to subsquid v5 (#77)
+  -Upgrade indexer
+  -Update indexer gateway image
+  -Add metadata for all spec version
+  -Migrate mapping handlers listed in balances
+  -Update scripts, related configuration files and dockerfile
+
+-Adapt to v14 metadata changes (#82)
+
+-Fix assetId for scalar markets (#83)
+  -Create asset for scalar outcomes
+  -Perceive currencyId for scalar markets
+  -Leverage market.outcomeAssets for creating asset
+
+-Manually fix balances to record activity unavailable via event/extrinsic data (#89)
+
+-Process & map ParachainStakingRewardedEvent (#90)
+
+-Identify pool account and add pool-Id to account (#94)
+
+-Add account info in trade data (#99)
+
+-Compute value of each asset in an account (#102)
+
+-Compute sum of all asset values in an account (#104)
+
+
+### Protocol
+
+There are a few changes to the Zeitgeist protocol this month. It mainly carries out synchronous upgrade adaptation for the upgrade of Polkadot, and a total of 23 commitments have been submitted. Below are key update details:
+
+
+-Add StorageVersion due to Substrate update(#472)
+   
+-Remove the txfilter module and use the abstract basecallfilter for filtering 
+(#441)
+
+-Remove panickers from Rikiddo code, abstract some redundant code (#470)
+
+-Update dependencies to polkadot-v0.9.16（#458）
+
+-Ensure that there's no activity on pending proposed markets (#432)
+
+-Clarify and implement numerical limits for bpow and bpow_approx (#474)	
+  -Add the calculation method of Maxinratio and Maxoutratio parameters to restrict the operation (creation or removal) of the large-scale asset pool (
+#475)
+
+-Add amount to Bought/SoldCompleteSet event (#491)
+
+-Prepage migrations for parachain-staking (Moonbeam) (#488)
+
+-Add democracy (#494)
+  -Add democracy pallet
+  -Add Tech & Council collective & membership
+  -Add weights and add vote proportion origins
+  -Modify relevant configuration
+
+
+
+
+
+
+### SDK
+
+This month, the SDK continues to iterate rapidly, and the version number is from v0 4.8-alpha. 2 iterations to v0 4.10, a total of 15 commitments were submitted. Below are key update details:
+
+
+
+-Upgrade and adapt subsquid V5 and release SDK v0 4.8-alpha. Version 3 (#171)
+  
+-Fetch the historical price of assets through subsquid and realease SDK v0 4.8 official version (#173)
+
+-configurable ipfs client url and release SDK v0 4.9 version (#175)
+
+-Modify some functions to support scalar market and release SDK v0. 4.10 version(#176)
+
+-Add the interface of getting historical account balances from subsquidd and realease SDK v0.4.11 Version (#177)
+
+
+
+### App optimization
+
+Most of the work this month is the optimization of the app. At present, the app has not been open-source, and a total of 96 commitments have been made
+
+
+
+### Other development
+
+-At present, the final code audit is in progress before launching mainnet
+ 
+-The team is still developing relevant websites and tools for the next marketing campaign, including the further exploration of NFT functions, which have not yet been open-source
+
+Users can check crowdloan rewards at https://balance.zeitgeist.pm/ 
+
+
+### Marketing
+
+-Star to build a discord server for the Chinese community
+
+-Translate related prediction market wiki articles to provide more detailed knowledge for the community
+
+-Work with the Karura team to integrate aUSD into the Zeitgeist platform to help users avoid cryptocurrency price fluctuations
+
+-Complete the integration with the data analysis suite of the subscan team, allowing users to read our on-chain and obtain the real-time information on our Kusama parallel chain.
+
+-Join Acala's 250 million ecosystem fund to further support the ecosystem expansion of the stable currency aUSD in Polkadot / Kusama
